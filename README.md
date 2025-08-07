@@ -1,50 +1,152 @@
-# Welcome to your Expo app 👋
+# RB Properties - Real Estate Website
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern real estate website built with React Native and Expo, featuring property listings, search functionality, and contact forms.
 
-## Get started
+## Features
 
-1. Install dependencies
+### 🏠 Home Page
+- Hero section with search functionality
+- Featured properties showcase
+- Services overview (Buy, Sell, Rent)
+- Modern, responsive design
 
-   ```bash
-   npm install
-   ```
+### 🏢 Properties Page
+- Comprehensive property listings
+- Search and filter functionality
+- Property cards with key information
+- Quick filters by property type
 
-2. Start the app
+### 📋 Property Details
+- Detailed property information
+- Multiple property images
+- Property features and amenities
+- Agent contact information
+- Call and email actions
 
-   ```bash
-   npx expo start
-   ```
+### 📞 Contact Page
+- Contact form for inquiries
+- Office information and hours
+- Team member profiles
+- Direct contact options
 
-In the output, you'll find options to open the app in a
+## Technology Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **React Native** - Cross-platform mobile development
+- **Expo** - Development platform and tools
+- **Expo Router** - File-based routing
+- **TypeScript** - Type safety
+- **React Native Web** - Web support
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Getting Started
 
-## Get a fresh project
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+- Expo CLI
 
-When you're ready, run:
+### Installation
 
+1. Clone the repository:
 ```bash
-npm run reset-project
+git clone <repository-url>
+cd rbproperties
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Learn more
+3. Start the development server:
+```bash
+# For web
+npm run web
 
-To learn more about developing your project with Expo, look at the following resources:
+# For iOS
+npm run ios
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# For Android
+npm run android
+```
 
-## Join the community
+## Project Structure
 
-Join our community of developers creating universal apps.
+```
+rbproperties/
+├── app/
+│   ├── (tabs)/
+│   │   ├── index.tsx          # Home page
+│   │   ├── explore.tsx        # Properties listing
+│   │   └── _layout.tsx        # Tab navigation
+│   ├── property/
+│   │   └── [id].tsx           # Property details page
+│   ├── contact.tsx            # Contact page
+│   └── _layout.tsx            # Root layout
+├── components/                # Reusable components
+├── constants/                 # App constants
+├── hooks/                     # Custom hooks
+└── assets/                    # Images and fonts
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Key Components
+
+### Property Cards
+- Display property images, price, location
+- Show key details (beds, baths, sqft)
+- Navigate to detailed property view
+
+### Search & Filters
+- Location-based search
+- Property type filters
+- Price range filtering
+- Sort options
+
+### Contact Forms
+- User inquiry forms
+- Agent contact information
+- Office details and hours
+
+## Images
+
+The application uses high-quality real estate images from Unsplash:
+- Property photos
+- Agent profile pictures
+- Hero section backgrounds
+- Office and team images
+
+## Routing
+
+The app uses Expo Router for navigation:
+- `/` - Home page
+- `/explore` - Properties listing
+- `/property/[id]` - Individual property details
+- `/contact` - Contact page
+
+## Styling
+
+- Consistent design system
+- Responsive layouts
+- Dark/light mode support
+- Modern UI components
+
+## Future Enhancements
+
+- User authentication
+- Property favoriting
+- Advanced search filters
+- Property comparison
+- Virtual tours
+- Mortgage calculator
+- Property alerts
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.

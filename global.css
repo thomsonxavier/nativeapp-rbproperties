@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global CSS Variables for Consistent Colors */
+:root {
+  /* Primary Colors */
+  --primary-blue: #007AFF;
+  --primary-blue-dark: #0056CC;
+  --primary-blue-light: #4DA3FF;
+  
+  /* Neutral Colors - Light Mode */
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
+  --text-inverse: #FFFFFF;
+  
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-tertiary: #F3F4F6;
+  --bg-card: #FFFFFF;
+  
+  --border-primary: #E5E7EB;
+  --border-secondary: #D1D5DB;
+  
+  /* Status Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #3B82F6;
+  
+  /* Property Type Colors */
+  --property-house: #8B5CF6;
+  --property-apartment: #06B6D4;
+  --property-villa: #F59E0B;
+  --property-land: #10B981;
+  --property-project: #EC4899;
+  --property-office: #6366F1;
+}
+
+/* Dark Mode Colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #F9FAFB;
+    --text-secondary: #D1D5DB;
+    --text-tertiary: #9CA3AF;
+    --text-inverse: #1F2937;
+    
+    --bg-primary: #111827;
+    --bg-secondary: #1F2937;
+    --bg-tertiary: #374151;
+    --bg-card: #1F2937;
+    
+    --border-primary: #374151;
+    --border-secondary: #4B5563;
+  }
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Utility Classes */
+@layer utilities {
+  /* Text Colors */
+  .text-primary { color: var(--text-primary); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-tertiary { color: var(--text-tertiary); }
+  .text-inverse { color: var(--text-inverse); }
+  .text-brand { color: var(--primary-blue); }
+  
+  /* Background Colors */
+  .bg-primary { background-color: var(--bg-primary); }
+  .bg-secondary { background-color: var(--bg-secondary); }
+  .bg-tertiary { background-color: var(--bg-tertiary); }
+  .bg-card { background-color: var(--bg-card); }
+  .bg-brand { background-color: var(--primary-blue); }
+  
+  /* Border Colors */
+  .border-primary { border-color: var(--border-primary); }
+  .border-secondary { border-color: var(--border-secondary); }
+  .border-brand { border-color: var(--primary-blue); }
+  
+  /* Property Type Colors */
+  .property-house { color: var(--property-house); }
+  .property-apartment { color: var(--property-apartment); }
+  .property-villa { color: var(--property-villa); }
+  .property-land { color: var(--property-land); }
+  .property-project { color: var(--property-project); }
+  .property-office { color: var(--property-office); }
+  
+  /* Status Colors */
+  .status-success { color: var(--success); }
+  .status-warning { color: var(--warning); }
+  .status-error { color: var(--error); }
+  .status-info { color: var(--info); }
+  
+  /* Interactive States */
+  .hover\:bg-secondary:hover { background-color: var(--bg-secondary); }
+  .hover\:bg-tertiary:hover { background-color: var(--bg-tertiary); }
+  .hover\:text-brand:hover { color: var(--primary-blue); }
+  
+  /* Focus States */
+  .focus\:ring-brand:focus { 
+    --tw-ring-color: var(--primary-blue);
+    --tw-ring-opacity: 0.5;
+  }
+  
+  /* Transitions */
+  .transition-colors {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Card Component */
+  .card {
+    @apply bg-card border border-primary rounded-2xl shadow-sm transition-colors;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-md hover:border-secondary transition-all duration-200;
+  }
+  
+  /* Button Components */
+  .btn-primary {
+    @apply bg-brand text-inverse px-6 py-3 rounded-full font-semibold 
+           hover:bg-primary-blue-dark transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-primary border border-primary px-6 py-3 rounded-full font-semibold 
+           hover:bg-tertiary transition-colors;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-brand border border-brand px-6 py-3 rounded-full font-semibold 
+           hover:bg-brand hover:text-inverse transition-colors;
+  }
+  
+  /* Input Components */
+  .input-primary {
+    @apply bg-card border border-primary rounded-xl px-4 py-3 text-primary 
+           focus:ring-2 focus:ring-brand focus:border-transparent transition-colors;
+  }
+  
+  /* Badge Components */
+  .badge-primary {
+    @apply bg-brand text-inverse px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary text-primary px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 
+           px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 
+           px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  /* Property Card Specific */
+  .property-card {
+    @apply card-hover overflow-hidden;
+  }
+  
+  .property-image {
+    @apply w-full h-48 object-cover;
+  }
+  
+  .property-badge {
+    @apply absolute top-3 left-3 bg-black/70 text-inverse px-2 py-1 rounded-xl text-xs font-semibold;
+  }
+  
+  .property-type-badge {
+    @apply absolute top-3 right-3 bg-secondary text-brand px-3 py-1.5 rounded-xl text-xs font-semibold;
+  }
+  
+  .property-status-badge {
+    @apply absolute bottom-3 left-3 badge-primary;
+  }
+  
+  /* Navigation Components */
+  .nav-header {
+    @apply bg-card border-b border-primary px-6 py-4;
+  }
+  
+  .nav-back-button {
+    @apply flex-row items-center text-secondary hover:text-primary transition-colors;
+  }
+  
+  /* List Components */
+  .list-item {
+    @apply flex-row items-center justify-between py-3 border-b border-primary last:border-b-0;
+  }
+  
+  .list-item-label {
+    @apply font-semibold text-primary;
+  }
+  
+  .list-item-value {
+    @apply text-secondary text-right flex-1 ml-4;
+  }
+  
+  /* Feature/Amenity Items */
+  .feature-item {
+    @apply flex-row items-center w-1/2 mb-3;
+  }
+  
+  .feature-icon {
+    @apply mr-2;
+  }
+  
+  .feature-text {
+    @apply text-sm text-secondary flex-1;
+  }
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  .card {
+    @apply bg-card border-primary;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-primary border-primary;
+  }
+  
+  .input-primary {
+    @apply bg-card border-primary text-primary;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary text-primary;
+  }
+}
+
+/* Animation Classes */
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
